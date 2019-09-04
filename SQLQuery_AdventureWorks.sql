@@ -63,3 +63,8 @@ SELECT NAME, LISTPRICE, LISTPRICE + 10 AS ADJUSTED_LIST_PRICE FROM [Production].
  ---
  SELECT TOP 10 * FROM Production.WorkOrder
  ---
+ SELECT WorkOrderID, ProductID, StartDate, EndDate, DATEDIFF(day, StartDate, EndDate) AS DateDiff
+ FROM Production.WorkOrder
+
+ ---TO GET THE FIRST DATE OF THIS MONTH
+ SELECT DATEADD(dd, -(DATEPART(day, GETDATE()-1)), GETDATE())
